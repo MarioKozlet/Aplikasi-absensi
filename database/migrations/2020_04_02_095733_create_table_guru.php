@@ -22,6 +22,7 @@ class CreateTableGuru extends Migration
             $table->text('alamat_guru');	
             $table->string('kota_guru');
             $table->string('foto_guru');
+            $table->foreignId('id_user');
             $table->timestamps();
             $table->softDeletes();
         });

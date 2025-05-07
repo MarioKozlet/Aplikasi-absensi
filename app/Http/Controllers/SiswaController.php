@@ -179,7 +179,7 @@ class SiswaController extends Controller
             'tempat_lahir_siswa' => $request->tempat_lahir_siswa,
             'tgl_lahir_siswa' => $request->tgl_lahir_siswa,
             'foto_siswa' => $imageName,
-            'user_id' => $users->id
+            'id_user' => $users->id
         ]);
 
         if(!$users || !$siswa)

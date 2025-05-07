@@ -10,7 +10,7 @@ class Siswa extends Model
     use SoftDeletes;
     protected $table = 'table_siswa';
     protected $dates = ['deleted_at'];
-    protected $fillable = ['nis_siswa', 'nisn_siswa', 'nama_siswa', 'kelas_id', 'agama_siswa', 'jk_siswa', 'no_siswa', 'alamat_siswa', 'kota_siswa', 'tempat_lahir_siswa', 'tgl_lahir_siswa', 'foto_siswa', 'user_id'];
+    protected $fillable = ['nis_siswa', 'nisn_siswa', 'nama_siswa', 'kelas_id', 'agama_siswa', 'jk_siswa', 'no_siswa', 'alamat_siswa', 'kota_siswa', 'tempat_lahir_siswa', 'tgl_lahir_siswa', 'foto_siswa', 'id_user'];
 
     public function kelas()
     {

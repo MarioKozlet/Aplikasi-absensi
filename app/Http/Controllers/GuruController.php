@@ -66,8 +66,7 @@ class GuruController extends Controller
             'nip_guru' => [
                 'required',
                 Rule::unique('table_guru'),
-                'max:255',
-                'min:5',
+                'digits_between:1,255',
                 'without_spaces',
                 'numeric'
             ],
@@ -85,8 +84,7 @@ class GuruController extends Controller
             'no_guru' => [
                 'required',
                 Rule::unique('table_guru'),
-                'min:9',
-                'max:13',
+                'digits_between:9,13',
                 'numeric'
             ],
             'alamat_guru' => 'required',
@@ -148,7 +146,7 @@ class GuruController extends Controller
             'alamat_guru' => $request->alamat_guru,
             'kota_guru' => $request->kota_guru,
             'foto_guru' => $imageName,
-            'user_id' => $users->id
+            'id_user' => $users->id
         ]);
 
         if(!$guru || !$users)

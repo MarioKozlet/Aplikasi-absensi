@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jurusan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -25,7 +26,8 @@ class KelasController extends Controller
         $data['title'] = 'Data Kelas';
         $data['kelas'] = Kelas::all();
         $data['guru'] = Guru::all();
-        $data['jenjang'] = DB::table('conf_level')->where('jenjang', MyHelper::get_jenjang_sekolah())->orderBy('urutan')->get();
+        $data['jurusan'] = Jurusan::all();
+        // $data['jenjang'] = DB::table('conf_level')->where('jenjang', MyHelper::get_jenjang_sekolah())->orderBy('urutan')->get();
 
         return view('kelas.data_kelas', $data);
     }

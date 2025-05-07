@@ -125,9 +125,10 @@
                                 <label for="tingkat_kelas" class="">Tingkatan Kelas</label>
                                 <select name="tingkat_kelas" id="tingkat_kelas" class="form-control">
                                     <option value="">Tingkat Kelas</option>
-                                    @foreach($jenjang as $rj)
-                                        <option value="{{ $rj->level }}">{{ $rj->level }}</option>
-                                    @endforeach
+                                    <option value="">-- Pilih Kelas --</option>
+                                    <option value="X">Kelas 10</option>
+                                    <option value="XI">Kelas 11</option>
+                                    <option value="XII">Kelas 12</option>
                                 </select>
                             </div>
                         </div>
@@ -135,10 +136,9 @@
                             <div class="position-relative form-group">
                                 <label for="jurusan_kelas" class="">Jurusan</label>
                                 <select name="jurusan_kelas" id="jurusan_kelas" class="form-control">
-                                    <option value="">Jurusan</option>
-                                    <option value="IPA">IPA</option>
-                                    <option value="IPS">IPS</option>
-                                    <option value="BAHASA">BAHASA</option>
+                                    @foreach($jurusan as $jrn)
+                                    <option value="{{$jrn->id}}">{{$jrn->nama_jurusan}}</option>
+                                    @endforeach 
                                 </select>
                             </div>
                         </div>
@@ -205,10 +205,14 @@
                                 <label for="tingkat_kelas_edit" class="">Tingkatan Kelas</label>
                                 <select name="tingkat_kelas" id="tingkat_kelas_edit" class="form-control">
                                     <option value="">Tingkat Kelas</option>
-                                    @foreach($jenjang as $rj)
-                                        <option value="{{ $rj->level }}">{{ $rj->level }}</option>
-                                    @endforeach
-                                </select>
+                                    <select name="tingkat_kelas" id="tingkat_kelas" class="form-control">
+                                        <option value="">Tingkat Kelas</option>
+                                        <option value="">-- Pilih Kelas --</option>
+                                        <option value="X">Kelas 10</option>
+                                        <option value="XI">Kelas 11</option>
+                                        <option value="XII">Kelas 12</option>
+                                    </select>
+                                 </select>
                             </div>
                         </div>
                         <div class="col-md-6">
