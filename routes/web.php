@@ -100,3 +100,8 @@ Route::get('pengaturan_akses', 'AksesController@index');
 Route::get('pengaturan_akses/ajax_get_user', 'AksesController@ajax_get_user');
 Route::get('pengaturan_akses/ajax_get_user_by_id', 'AksesController@ajax_get_user_by_id');
 Route::patch('pengaturan_akses/ajax_action_ubah_akses', 'AksesController@ajax_action_ubah_akses');
+
+//ROUTE FOR ABSENSI
+Route::get('/absensi', 'AbsensiController@index')->name('absensi');
+Route::get('/absensi/detail/{id}', 'AbsensiController@cretae')->name('absensi.detail');
+Route::post('/absensi/tambah', 'AbsensiController@store')->name('absensi.store');
