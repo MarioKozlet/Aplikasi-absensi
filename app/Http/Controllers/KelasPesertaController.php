@@ -10,7 +10,7 @@ class AbsensiContoller extends Controller
     {
         $kelas = Kelas::query()
             ->get();
-        return view('absensi.index', $kelas);
+        return view('siswa-kelas.index', $kelas);
     }
 
     public function create(Request $request, Kelas $kelas)
