@@ -48,7 +48,7 @@ class SekolahSettingController extends Controller
             'email_sekolah' => 'Email sekolah',
             'alamat_sekolah' => 'Alamat sekolah',
             'kota_sekolah' => 'Kota sekolah',
-            'status_ppdb' => 'Status PPDB',
+            // 'status_ppdb' => 'Status PPDB',
         ];
 
         $column = [
@@ -60,7 +60,7 @@ class SekolahSettingController extends Controller
             'email_sekolah'   => 'required|email',
             'alamat_sekolah'  => 'required|string|min:10',
             'kota_sekolah'    => 'required|string',
-            'status_ppdb'     => 'required|in:0,1',
+            // 'status_ppdb'     => 'required|in:0,1',
         ];
         
         if($request->logo_sekolah != NULL)
@@ -124,7 +124,7 @@ class SekolahSettingController extends Controller
         if($request->logo_sekolah != NULL){
             $sekolah->logo_sekolah = $imageName;
         }
-        $sekolah->status_ppdb = $request->status_ppdb;
+        // $sekolah->status_ppdb = $request->status_ppdb;
         $sekolah->save();
 
         if(!$sekolah)
