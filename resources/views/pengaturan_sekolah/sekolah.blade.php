@@ -207,7 +207,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-lg-4 col-12">
+                {{-- <div class="col-md-4 col-lg-4 col-12">
                     <div class="main-card mb-3 card">
                         <div class="card-body">
                             <h5 class="card-title">Status PPDB</h5>
@@ -244,7 +244,7 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
