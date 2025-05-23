@@ -15,8 +15,9 @@ class CreatePesertaKelasTable extends Migration
     {
         Schema::create('peserta_kelas', function (Blueprint $table) {
             $table->id();
-            $table->string();
-            $table->id();
+            $table->string('id_kelas');
+            $table->string('id_guru');
+            $table->string('id_siswa');
             $table->timestamps();
         });
     }
