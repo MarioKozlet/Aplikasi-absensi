@@ -47,7 +47,7 @@
                                                         <td>{{ $item->nama_kelas }}</td>
                                                         <td>
                                                             <a class="btn btn-primary"
-                                                                href="{{ route('absensi.create', ['id' => $item->id]) }}">Detail</a>
+                                                                href="{{ route('absensi.store', ['id' => $item->id]) }}">Detail</a>
                                                         </td>
                                                     @endforeach
                                                 </tr>
