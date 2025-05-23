@@ -190,6 +190,13 @@
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="{{ url('kelas') }}"
+                                        class="@if ($nav_active == 'kelas') mm-active @endif">
+                                        <i class="metismenu-icon pe-7s-id"></i>
+                                        Data Kelas Peserta
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="{{ url('mapel') }}"
                                         class="@if ($nav_active == 'mapel') mm-active @endif">
                                         <i class="metismenu-icon pe-7s-bookmarks"></i>
