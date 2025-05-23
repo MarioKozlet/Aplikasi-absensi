@@ -47,19 +47,22 @@ class SekolahSettingController extends Controller
             'telepon_sekolah' => 'Nomor Telepon sekolah',
             'email_sekolah' => 'Email sekolah',
             'alamat_sekolah' => 'Alamat sekolah',
-            'kota_sekolah' => 'Kota sekolah'
+            'kota_sekolah' => 'Kota sekolah',
+            'status_ppdb' => 'Status PPDB',
         ];
 
         $column = [
-            'nama_sekolah' => 'required|max:100',
-            'npsn_sekolah' => 'required|numeric',
-            'jenjang_sekolah' => 'required',
-            'tipe_sekolah' => 'required',
-            'telepon_sekolah' => 'required|min:9|numeric',
-            'email_sekolah' => 'email|required',
-            'alamat_sekolah' => 'min:10|required',
-            'kota_sekolah' => 'required'
+            'nama_sekolah'    => 'required|string|max:100',
+            'npsn_sekolah'    => 'required|numeric',
+            'jenjang_sekolah' => 'required|in:SD,SMP,SMA',
+            'tipe_sekolah'    => 'required|in:NEGERI,SWASTA',
+            'telepon_sekolah' => 'required|numeric|min:9',
+            'email_sekolah'   => 'required|email',
+            'alamat_sekolah'  => 'required|string|min:10',
+            'kota_sekolah'    => 'required|string',
+            'status_ppdb'     => 'required|in:0,1',
         ];
+        
         if($request->logo_sekolah != NULL)
         {
             $logo = ['logo_sekolah' => 'mimes:jpeg,bmp,png|max:2000|image|required'];
@@ -103,7 +106,11 @@ class SekolahSettingController extends Controller
        }
 
         //UPDATE GURU
-        $sekolah = Sekolah::find($request->id);
+        if (isset($request->id)) {
+            $sekolah = Sekolah::find($request->id);
+        } else {
+            $sekolah = new Sekolah();
+        }
         $sekolah->nama_sekolah = $request->nama_sekolah;
         $sekolah->npsn_sekolah = $request->npsn_sekolah;
         $sekolah->jenjang_sekolah = $request->jenjang_sekolah;
@@ -117,6 +124,7 @@ class SekolahSettingController extends Controller
         if($request->logo_sekolah != NULL){
             $sekolah->logo_sekolah = $imageName;
         }
+        $sekolah->status_ppdb = $request->status_ppdb;
         $sekolah->save();
 
         if(!$sekolah)

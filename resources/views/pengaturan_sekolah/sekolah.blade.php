@@ -218,7 +218,7 @@
                                     value="{{ $data['sekolah']->id ?? null }}">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        @if (isset($sekolah->status_ppdb) == 1)
+                                        @if (isset($data['sekolah']->status_ppdb) == 1)
                                             <div class="alert alert-success">
                                                 <b>Status PPDB Aktif!</b>
                                             </div>
@@ -232,14 +232,12 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <select name="status_ppdb" id="status_ppdb" class="form-control">
-                                            @php
-                                                $status = old('status_ppdb', optional($sekolah)->status_ppdb);
-                                            @endphp
-                                            <option value="1" @if ($status == '1') selected @endif>Aktif
+                                            <option value="1" @if (optional($sekolah)->status_ppdb == '1') selected @endif>Aktif
                                             </option>
-                                            <option value="0" @if ($status == '0') selected @endif>Tidak
+                                            <option value="0" @if (optional($sekolah)->status_ppdb == '0') selected @endif>Tidak
                                                 Aktif</option>
                                         </select>
+
 
                                     </div>
                                 </div>
@@ -276,9 +274,9 @@
                 contentType: false,
                 cache: false,
                 async: false,
-                beforeSend: function() {
-                    $(".loader").show();
-                },
+                // beforeSend: function() {
+                //     $(".loader").show();
+                // },
                 success: function(response) {
                     $(".loader").hide();
 
@@ -307,9 +305,9 @@
                         window.location.href = response.redirect;
                     }
                 },
-                error: function() {
-                    alert("Error Data!");
-                }
+                // error: function() {
+                //     alert("Error Data!");
+                // }
             });
         });
 
@@ -346,9 +344,9 @@
                         window.location.href = response.redirect;
                     }
                 },
-                error: function() {
-                    alert('Error data!');
-                }
+                // error: function() {
+                //     alert('Error data!');
+                // }
             });
         });
 
