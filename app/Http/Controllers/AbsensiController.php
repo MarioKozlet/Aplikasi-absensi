@@ -1,16 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Kelas;
 use Illuminate\Http\Request;
 
-class AbsensiContoller extends Controller
+class AbsensiController extends Controller
 {
-    public function index()
+        public function index()
     {
         $kelas = Kelas::query()
             ->get();
-        return view('absensi.index', $kelas);
+        return view('absensi.index', ['kelas' => $kelas]);
     }
 
     public function create(Request $request, Kelas $kelas)
@@ -27,7 +27,7 @@ class AbsensiContoller extends Controller
 
         // Ambil siswa berdasarkan kelas_id (asumsi satu siswa per absensi, bisa disesuaikan)
         $siswa = Siswa::where('kelas_id', $validated['kelas_id'])->first(); // sesuaikan logika jika lebih dari 1 siswa
-        ortu = Ortu::where('siswa_nis', $siswa->nis_siswa)->first(); // ambil data ortu berdasarkan siswa
+        $ortu = Ortu::where('siswa_nis', $siswa->nis_siswa)->first(); // ambil data ortu berdasarkan siswa
         if ($siswa && $siswa->nomor_ibu) {
             $pesan = "Halo Ibu dari {$siswa->nama},\nHari ini ({$validated['tanggal']}), siswa dinyatakan: {$validated['absen']}.";
             try {
@@ -43,6 +43,4 @@ class AbsensiContoller extends Controller
 
         return redirect()->route('absensi.index')->with('success', 'Absensi created and message sent.');
     }
-
-
 }
