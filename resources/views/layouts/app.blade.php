@@ -277,13 +277,13 @@
                                                 Pengaturan Sekolah
                                             </a>
                                         </li>
-                                        <li>
+                                        {{-- <li>
                                             <a href="{{ url('pengaturan_akses') }}"
                                                 class="@if ($nav_active == 'pengaturan_akses') mm-active @endif">
                                                 <i class="metismenu-icon"></i>
                                                 Pengaturan Hak Akses
                                             </a>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </li>
                                 <li>
