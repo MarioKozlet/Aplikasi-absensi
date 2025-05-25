@@ -15,6 +15,13 @@ class AbsensiContoller extends Controller
 
     public function create(Request $request, Kelas $kelas)
     {
+        $guru = Guru::query()
+            ->get();
+        return view('siswa-kelas.cretae', ['guru' => $guru, 'kelas' => $kelas]);
+    }
+
+    public function store(Request $request, Kelas $kelas)
+    {
         $request->validate([
             'id_kelas' => 'required|string',
             'id_guru' => 'required|string',

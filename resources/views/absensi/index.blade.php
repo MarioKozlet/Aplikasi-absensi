@@ -11,9 +11,9 @@
                             <i class="pe-7s-users icon-gradient bg-mean-fruit">
                             </i>
                         </div>
-                        <div>Data Guru
+                        <div>Data Absen
                             <div class="page-title-subheading">
-                                <?= date('l, d F Y') ?>
+                                Data Absen {{ config('app.name') }}
                             </div>
                         </div>
                     </div>

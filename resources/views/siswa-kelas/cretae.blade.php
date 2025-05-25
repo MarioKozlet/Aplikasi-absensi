@@ -15,6 +15,16 @@
             <input type="hidden" name="kelas_id" value="{{ $kelas->id }}">
 
             <div class="overflow-x-auto mb-4">
+                <div class="">
+                    <label for="guru_id" class="">Guru <span class="text-danger">*</span></label>
+                    <select name="guru_id" id="guru_id" class="form-control">
+                        <option value="">Pilih Guru</option>
+                        @foreach ($guru as $item)
+                            <option value="{{ $item->id }}" {{ old('guru_id') == $item->id ? 'selected' : '' }}>
+                                {{ $item->nama_guru }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <table class="w-full table-auto border border-gray-200 rounded-md">
                     <thead class="bg-gray-100">
                         <tr>
