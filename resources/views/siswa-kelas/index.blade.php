@@ -47,13 +47,6 @@
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <div class="col-md-3">
-                    <button class="btn btn-primary btn-block" data-toggle="modal" data-target=".tambah-kelas"><i
-                            class="fa fa-plus"></i> Tambah Data Kelas</button>
-                </div>
-            </div>
-
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-12">
                     <div class="main-card mb-3 card">
@@ -69,8 +62,6 @@
                                                     <th>#</th>
                                                     <th>Kode Kelas</th>
                                                     <th>Nama Kelas</th>
-                                                    <th>Tingkat</th>
-                                                    <th>Jurusan</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -81,9 +72,8 @@
                                                         <td>{{ $loop->iteration }}</td>
                                                         <td>{{ $item->kode_kelas }}</td>
                                                         <td>{{ $item->nama_kelas }}</td>
-                                                        <td>{{ $item->wali_kelas }}</td>
-                                                        <td><a href="{{ route('kelas-peserta.create', ['kelas' => $item->id]) }}"
-                                                                class="btn btn-primary">Simpan</a></td>
+                                                        <td><a href="{{ route('kelas-peserta.create', ['id' => $item->id]) }}"
+                                                                class="btn btn-primary">Detail</a></td>
                                                     @endforeach
                                                 </tr>
                                             </tbody>
