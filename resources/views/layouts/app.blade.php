@@ -160,7 +160,7 @@
                             <li class="app-sidebar__heading">Menu</li>
                             <li>
                                 <a href="{{ url('home') }}"
-                                    class="@if ($nav_active == 'home') mm-active @endif">
+                                    class="@if (($nav_active ?? '' ?? '' ?? '') == 'home') mm-active @endif">
                                     <i class="metismenu-icon pe-7s-home"></i>
                                     Dashboard
                                 </a>
@@ -168,7 +168,7 @@
                             @if (Auth::user()->level == 'GURU')
                                 <li>
                                     <a href="{{ url('absensi') }}"
-                                        class="@if ($nav_active == 'absensi') mm-active @endif">
+                                        class="@if ($nav_active ?? '' ?? '' == 'absensi') mm-active @endif">
                                         <i class="metismenu-icon pe-7s-home"></i>
                                         Absensi
                                     </a>
@@ -177,49 +177,49 @@
                             @if (in_array(Auth::user()->level, ['ADMIN']))
                                 <li>
                                     <a href="{{ url('jurusan') }}"
-                                        class="@if ($nav_active == 'jurusan') mm-active @endif">
+                                        class="@if (($nav_active ?? '' ?? '' ?? '') == 'jurusan') mm-active @endif">
                                         <i class="metismenu-icon pe-7s-link"></i>
                                         Data Jurusan
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ url('kelas') }}"
-                                        class="@if ($nav_active == 'kelas') mm-active @endif">
+                                        class="@if (($nav_active ?? '' ?? '' ?? '') == 'kelas') mm-active @endif">
                                         <i class="metismenu-icon pe-7s-id"></i>
                                         Data Kelas
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ url('kelas-peserta') }}"
-                                        class="@if ($nav_active == 'kelas-peserta') mm-active @endif">
+                                        class="@if (($nav_active ?? '' ?? '' ?? '') == 'kelas-peserta') mm-active @endif">
                                         <i class="metismenu-icon pe-7s-id"></i>
                                         Data Kelas Peserta
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ url('mapel') }}"
-                                        class="@if ($nav_active == 'mapel') mm-active @endif">
+                                        class="@if (($nav_active ?? '' ?? '' ?? '') == 'mapel') mm-active @endif">
                                         <i class="metismenu-icon pe-7s-bookmarks"></i>
                                         Data Mata Pelajaran
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="" @if ($nav_active == 'siswa' || $nav_active == 'ortu') aria-expanded="true" @endif>
+                                    <a href="" @if ($nav_active ?? '' ?? '' == 'siswa' || $nav_active ?? '' ?? '' == 'ortu') aria-expanded="true" @endif>
                                         <i class="metismenu-icon pe-7s-users"></i>
                                         Siswa
                                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                     </a>
-                                    <ul class="@if ($nav_active == 'siswa' || $nav_active == 'ortu') mm-show mm-collapse @endif">
+                                    <ul class="@if ($nav_active ?? '' ?? '' == 'siswa' || $nav_active ?? '' ?? '' == 'ortu') mm-show mm-collapse @endif">
                                         <li>
                                             <a href="{{ url('siswa') }}"
-                                                class="@if ($nav_active == 'siswa') mm-active @endif">
+                                                class="@if ($nav_active ?? '' ?? '' == 'siswa') mm-active @endif">
                                                 <i class="metismenu-icon"></i>
                                                 Data Siswa
                                             </a>
                                         </li>
                                         <li>
                                             <a href="{{ url('ortu') }}"
-                                                class="@if ($nav_active == 'ortu') mm-active @endif">
+                                                class="@if ($nav_active ?? '' ?? '' == 'ortu') mm-active @endif">
                                                 <i class="metismenu-icon"></i>
                                                 Data Orang Tua/Wali
                                             </a>
@@ -227,29 +227,29 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="" @if ($nav_active == 'guru' || $nav_active == 'mapel_guru' || $nav_active == 'kelas_ajar_guru') aria-expanded="true" @endif>
+                                    <a href="" @if ($nav_active ?? '' ?? '' == 'guru' || $nav_active ?? '' ?? '' == 'mapel_guru' || $nav_active ?? '' ?? '' == 'kelas_ajar_guru') aria-expanded="true" @endif>
                                         <i class="metismenu-icon pe-7s-users"></i>
                                         Guru
                                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                     </a>
-                                    <ul class="@if ($nav_active == 'guru' || $nav_active == 'mapel_guru' || $nav_active == 'kelas_ajar_guru') mm-show mm-collapse @endif">
+                                    <ul class="@if ($nav_active ?? '' ?? '' == 'guru' || $nav_active ?? '' ?? '' == 'mapel_guru' || $nav_active ?? '' ?? '' == 'kelas_ajar_guru') mm-show mm-collapse @endif">
                                         <li>
                                             <a href="{{ url('guru') }}"
-                                                class="@if ($nav_active == 'guru') mm-active @endif">
+                                                class="@if ($nav_active ?? '' ?? '' == 'guru') mm-active @endif">
                                                 <i class="metismenu-icon"></i>
                                                 Data Guru
                                             </a>
                                         </li>
                                         <li>
                                             <a href="{{ url('mapel_guru') }}"
-                                                class="@if ($nav_active == 'mapel_guru') mm-active @endif">
+                                                class="@if ($nav_active ?? '' ?? '' == 'mapel_guru') mm-active @endif">
                                                 <i class="metismenu-icon"></i>
                                                 Mata Pelajaran Guru
                                             </a>
                                         </li>
                                         <li>
                                             <a href="{{ url('kelas_ajar_guru') }}"
-                                                class="@if ($nav_active == 'kelas_ajar_guru') mm-active @endif">
+                                                class="@if ($nav_active ?? '' ?? '' == 'kelas_ajar_guru') mm-active @endif">
                                                 <i class="metismenu-icon"></i>
                                                 Kelas Ajar Guru
                                             </a>
@@ -257,29 +257,29 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a href="" @if ($nav_active == 'pengaturan_sekolah' || $nav_active == 'pengaturan_akun' || $nav_active == 'pengaturan_akses') aria-expanded="true" @endif>
+                                    <a href="" @if ($nav_active ?? '' ?? '' == 'pengaturan_sekolah' || $nav_active ?? '' ?? '' == 'pengaturan_akun' || $nav_active ?? '' ?? '' == 'pengaturan_akses') aria-expanded="true" @endif>
                                         <i class="metismenu-icon pe-7s-settings"></i>
                                         Pengaturan
                                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                                     </a>
-                                    <ul class="@if ($nav_active == 'pengaturan_sekolah' || $nav_active == 'pengaturan_akun' || $nav_active == 'pengaturan_akses') mm-show mm-collapse @endif">
+                                    <ul class="@if ($nav_active ?? '' ?? '' == 'pengaturan_sekolah' || $nav_active ?? '' ?? '' == 'pengaturan_akun' || $nav_active ?? '' ?? '' == 'pengaturan_akses') mm-show mm-collapse @endif">
                                         <li>
                                             <a href="{{ url('pengaturan_akun') }}"
-                                                class="@if ($nav_active == 'pengaturan_akun') mm-active @endif">
+                                                class="@if ($nav_active ?? '' ?? '' == 'pengaturan_akun') mm-active @endif">
                                                 <i class="metismenu-icon"></i>
                                                 Pengaturan Akun
                                             </a>
                                         </li>
                                         <li>
                                             <a href="{{ url('pengaturan_sekolah') }}"
-                                                class="@if ($nav_active == 'pengaturan_sekolah') mm-active @endif">
+                                                class="@if ($nav_active ?? '' ?? '' == 'pengaturan_sekolah') mm-active @endif">
                                                 <i class="metismenu-icon"></i>
                                                 Pengaturan Sekolah
                                             </a>
                                         </li>
                                         {{-- <li>
                                             <a href="{{ url('pengaturan_akses') }}"
-                                                class="@if ($nav_active == 'pengaturan_akses') mm-active @endif">
+                                                class="@if ($nav_active ?? '' ?? '' == 'pengaturan_akses') mm-active @endif">
                                                 <i class="metismenu-icon"></i>
                                                 Pengaturan Hak Akses
                                             </a>

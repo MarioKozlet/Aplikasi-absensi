@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Guru;
 use App\Kelas;
+use App\KelasPeserta;
 use Illuminate\Http\Request;
 
 class KelasPesertaController extends Controller
@@ -12,7 +13,7 @@ class KelasPesertaController extends Controller
     {
         $kelas = Kelas::query()
             ->get();
-        return view('siswa-kelas.index', $kelas);
+        return view('siswa-kelas.index', ['kelas' => $kelas]);
     }
 
     public function create(Request $request, Kelas $kelas)

@@ -11,7 +11,7 @@
                             <i class="pe-7s-id icon-gradient bg-mean-fruit">
                             </i>
                         </div>
-                        <div>Data Kelas
+                        <div>Data Kelas Peserta
                             <div class="page-title-subheading">
                                 <?= date('l, d F Y') ?>
                             </div>
@@ -71,7 +71,6 @@
                                                     <th>Nama Kelas</th>
                                                     <th>Tingkat</th>
                                                     <th>Jurusan</th>
-                                                    <th>Wali Kelas</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -79,11 +78,12 @@
                                             <tbody>
                                                 <tr>
                                                     @foreach ($kelas as $item)
-                                                        <td>{{ $loop->iteratkon }}</td>
-                                                        <td>{{ $loop->kode_kelas }}</td>
-                                                        <td>{{ $loop->nama_kelas }}</td>
-                                                        <td>{{ $loop->wali_kelas }}</td>
-                                                        <td>{{ $loop->wali_kelas }}</td>
+                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td>{{ $item->kode_kelas }}</td>
+                                                        <td>{{ $item->nama_kelas }}</td>
+                                                        <td>{{ $item->wali_kelas }}</td>
+                                                        <td><a href="{{ route('kelas-peserta.create', ['kelas' => $item->id]) }}"
+                                                                class="btn btn-primary">Simpan</a></td>
                                                     @endforeach
                                                 </tr>
                                             </tbody>
