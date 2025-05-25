@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Guru;
+use App\Kelas;
 use Illuminate\Http\Request;
 
-class AbsensiContoller extends Controller
+class KelasPesertaController extends Controller
 {
     public function index()
     {
