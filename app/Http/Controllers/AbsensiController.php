@@ -40,21 +40,23 @@ class AbsensiController extends Controller
         // $absensi = Absensi::create($validated);
         
         // dd($request->input('absen'));
-        foreach ($request->input('absen') as $key => $value) {
-            // Ambil siswa berdasarkan kelas_id (asumsi satu siswa per absensi, bisa disesuaikan)
-            $siswa = Siswa::where('id', $value['siswa_id'])->first(); // sesuaikan logika jika lebih dari 1 siswa
-            $ortu = Ortu::where('siswa_nis', $siswa->nis_siswa)->first(); // ambil data ortu berdasarkan siswa
-            if ($siswa && $ortu->nomor_ortu) {
-                $pesan = "Halo Ibu dari {$siswa->nama},\nHari ini ({$validated['tanggal']}), siswa dinyatakan: {$validated['absen']}.";
-                try {
-                    Http::post('http://localhost:3000/send-message', [
-                        'phone' => $siswa->nomor_ortu, // format: 628xxxxxxxxxx
-                        'message' => $pesan,
-                    ]);
-                } catch (\Exception $e) {
-                    // Log jika ada error
-                    \Log::error('Gagal kirim pesan WA: ' . $e->getMessage());
-                }
+        if ($siswa && $ortu && $ortu->nomor_ortu) {
+            // Format nomor WA
+            $nomor = preg_replace('/[^0-9]/', '', $ortu->nomor_ortu); // hilangkan karakter non-digit
+    
+            if (str_starts_with($nomor, '08')) {
+                $nomor = '62' . substr($nomor, 1);
+            }
+    
+            $pesan = "Halo Ibu dari {$siswa->nama},\nHari ini ({$validated['tanggal']}), siswa dinyatakan: {$value['status']}.";
+    
+            try {
+                Http::post('http://localhost:3000/send-message', [
+                    'phone' => $nomor, 
+                    'message' => $pesan,
+                ]);
+            } catch (\Exception $e) {
+                \Log::error('Gagal kirim pesan WA: ' . $e->getMessage());
             }
         }
 
