@@ -103,10 +103,10 @@ Route::patch('pengaturan_akses/ajax_action_ubah_akses', 'AksesController@ajax_ac
 
 //ROUTE FOR ABSENSI
 Route::get('/absensi', 'AbsensiController@index')->name('absensi');
-Route::get('/absensi/detail/{id}', 'AbsensiController@cretae')->name('absensi.detail');
+Route::get('/absensi/detail/{id}', 'AbsensiController@create')->name('absensi.detail');
 Route::post('/absensi/tambah', 'AbsensiController@store')->name('absensi.store');
 
 //ROUTE FOR KELAS PESERTA
 Route::get('/kelas-peserta', 'KelasPesertaController@index')->name('kelas-peserta');
 Route::get('/kelas-peserta/{id}', 'KelasPesertaController@create')->name('kelas-peserta.create');
-Route::post('/kelas-peserta/tambah', 'KelasPesertaController@store')->name('kelas-peserta.store');
+Route::post('/kelas-peserta/tambah{id}', 'KelasPesertaController@store')->name('kelas-peserta.store');
